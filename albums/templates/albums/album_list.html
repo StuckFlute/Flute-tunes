@@ -1,0 +1,35 @@
+{% extends "core/base.html" %}
+
+{% block content %}
+	<h2>Albums</h2>
+	<div class="panel-group" id="accordion" role="tablist">
+		{% for album in albums %}
+			<div class="panel panel-default">
+				<div class="panel-heading" id="heading-{{album.pk}}">
+					<h4 class="panel-title">				
+						<a 
+							class="collapsed" 
+							href="#collapse-{{album.pk}}"
+							data-toggle="collapse"
+							data-parent="accordion"
+						>
+							{{album.title|title}}
+						</a>
+					</h4>
+				</div>
+				<div id="collapse-{{album.pk}}" class="panel-collapse collapse">
+					<div class="panel-body">
+						{% if album.description %}
+							{{album.description}}
+						{% else %}
+							<small><em>This album has no description</em></small>
+						{% endif %}
+						<p>
+							<a href="{{ album.get_absolute_url }}">View Album</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+{% endblock content %}

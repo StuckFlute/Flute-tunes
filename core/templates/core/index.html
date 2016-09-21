@@ -1,0 +1,29 @@
+{% extends "core/base.html" %}
+
+{% block content %}
+	<div class="jumbotron jumbotron-index">
+		<h1>Music Library | Flute Tunes</h1>
+	</div>
+	<ul class="list-group">
+		<li class="list-group-item">
+			<a href="{% url 'albums:album_list' %}">
+				View Albums
+			</a>
+		</li>
+		<li class="list-group-item">
+			<a href="{% url 'tracks:track_list' %}">
+				View Tracks
+			</a>
+		</li>
+		<li class="list-group-item">
+			<a href="{% url 'tracks:artist_list' %}">
+				View Artists
+			</a>
+		</li>
+		<li class="list-group-item">
+			<a href="{% url 'tracks:genre_list' %}">
+				View Genres
+			</a>
+		</li>
+	</ul>
+{% endblock content %}
