@@ -1,0 +1,24 @@
+{% extends "core/base.html" %}
+
+{% block content %}
+	<h2>Genres</h2>
+	<div class="panel-group" id="accordion" role="tablist">
+		{% for genre in genres %}
+			<div class="panel panel-default">
+				<div class="panel-heading" id="heading-{{genre.pk}}">
+					<h4 class="panel-title">				
+						<a 
+							class="collapsed" 
+							href="#collapse-{{genre.pk}}"
+							data-toggle="collapse"
+							data-parent="accordion"
+						>
+							{{genre.name|title}}
+						</a>
+					</h4>
+				</div>
+				
+			</div>
+		{% endfor %}
+	</div>
+{% endblock content %}

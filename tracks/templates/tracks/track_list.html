@@ -1,0 +1,35 @@
+{% extends "core/base.html" %}
+
+{% block content %}
+	<h2>Tracks</h2>
+	<div class="panel-group" id="accordion" role="tablist">
+		{% for track in tracks %}
+			<div class="panel panel-default">
+				<div class="panel-heading" id="heading-{{track.pk}}">
+					<h4 class="panel-title">				
+						<a 
+							class="collapsed" 
+							href="#collapse-{{track.pk}}"
+							data-toggle="collapse"
+							data-parent="accordion"
+						>
+							{{track.title|title}}
+						</a>
+					</h4>
+				</div>
+				<div id="collapse-{{track.pk}}" class="panel-collapse collapse">
+					<div class="panel-body">
+						{% if track.description %}
+							{{track.description}}
+						{% else %}
+							<small><em>This track has no description</em></small>
+						{% endif %}
+						<p>
+							<a href="{{ track.get_absolute_url }}">View Track</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+{% endblock content %}

@@ -12,5 +12,5 @@ class Album(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        pass
+        return reverse('albums:album_detail', args=[self.pk])
 

@@ -2,6 +2,8 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from django.db.models import Count
 
+from .models import Album
+
 def album_list(request):
 	albums = Album.objects.all()
 

@@ -12,6 +12,9 @@ class Track(models.Model):
     def __str__(self):
         return self.title
 
+    def get_absolute_url(self):
+        pass
+
 class Artist(models.Model):
 
     name =models.CharField(max_length =100)
@@ -25,3 +28,4 @@ class Genre(models.Model):
 
     def __str__(self):
         return self.name
+

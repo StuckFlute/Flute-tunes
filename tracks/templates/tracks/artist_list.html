@@ -1,0 +1,24 @@
+{% extends "core/base.html" %}
+
+{% block content %}
+	<h2>Artists</h2>
+	<div class="panel-group" id="accordion" role="tablist">
+		{% for artist in artists %}
+			<div class="panel panel-default">
+				<div class="panel-heading" id="heading-{{artist.pk}}">
+					<h4 class="panel-title">				
+						<a 
+							class="collapsed" 
+							href="#collapse-{{artist.pk}}"
+							data-toggle="collapse"
+							data-parent="accordion"
+						>
+							{{artist.name|title}}
+						</a>
+					</h4>
+				</div>
+			
+			</div>
+		{% endfor %}
+	</div>
+{% endblock content %}
