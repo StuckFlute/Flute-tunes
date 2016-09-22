@@ -17,7 +17,18 @@
 						</a>
 					</h4>
 				</div>
-				
+				<div id="collapse-{{genre.pk}}" class="panel-collapse collapse">
+					<div class="panel-body">
+						{% if genre.description %}
+							{{genre.description}}
+						{% else %}
+							<small><em>This genre has no description</em></small>
+						{% endif %}
+						<p>
+							<a href="{{ genre.get_absolute_url }}">View Genre</a>
+						</p>
+					</div>
+				</div>
 			</div>
 		{% endfor %}
 	</div>

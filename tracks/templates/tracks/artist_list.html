@@ -17,7 +17,18 @@
 						</a>
 					</h4>
 				</div>
-			
+				<div id="collapse-{{artist.pk}}" class="panel-collapse collapse">
+					<div class="panel-body">
+						{% if artist.description %}
+							{{artist.description}}
+						{% else %}
+							<small><em>This artist has no description</em></small>
+						{% endif %}
+						<p>
+							<a href="{{artist.get_absolute_url }}">View Artist</a>
+						</p>
+					</div>
+				</div>
 			</div>
 		{% endfor %}
 	</div>

@@ -2,5 +2,15 @@
 
 {% block content %}
     <h2>{{album.title}}</h2>
-    {{album.track_titles}}
+
+    {% if tracks %}
+        
+        <hr>
+        <div class="row">        	
+        		
+        	{% include "tracks/track_list.html" %}	
+        	
+        </div>
+    
+    {% endif %}
 {% endblock content %}

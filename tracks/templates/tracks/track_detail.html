@@ -1,0 +1,29 @@
+{% extends "core/base.html" %}
+
+{% block content %}
+    <h2>{{track.title}}</h2>
+	<h4>Album:</h4> {{track.album}}
+    {% if track.artists %}
+        
+        <hr>
+        
+        <h4>Artists:</h4> 
+        {% for artist in artists %}
+        {{artist.name}}
+        {% endfor %}     	
+        	
+        	
+       
+    
+    {% endif %}
+    {% if genres %}
+        
+        <hr>
+        <h4>Genres:</h4>
+        {% for genre in genres %}
+        {{genre.name}}
+        {% endfor %}     	
+        	
+    
+    {% endif %}
+{% endblock content %}

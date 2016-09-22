@@ -14,9 +14,11 @@ def album_list(request):
 
 def album_detail(request, id):
 	album = get_object_or_404(Album, pk=id)
+	tracks = album.track_set.all()
 
 	context = {
 		"album": album,
+		"tracks": tracks,
 	}
 
 	return render(request, "albums/album_detail.html", context)

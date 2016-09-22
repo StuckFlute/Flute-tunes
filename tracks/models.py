@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.urlresolvers import reverse
 
 
 class Track(models.Model):
@@ -13,7 +14,7 @@ class Track(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        pass
+        return reverse('tracks:track_detail', args=[self.pk])
 
 class Artist(models.Model):
 
@@ -21,6 +22,9 @@ class Artist(models.Model):
 
     def __str__(self):
         return self.name
+    def get_absolute_url(self):
+        return reverse('tracks:artist_detail', args=[self.pk])
+
 
 class Genre(models.Model):
 
@@ -28,4 +32,7 @@ class Genre(models.Model):
 
     def __str__(self):
         return self.name
+    def get_absolute_url(self):
+        return reverse('tracks:genre_detail', args=[self.pk])
+
 
