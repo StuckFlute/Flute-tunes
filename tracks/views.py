@@ -1,8 +1,10 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404,redirect
 from django.http import HttpResponse
 from django.db.models import Count
+from django.contrib import messages
 
 from .models import Artist, Genre, Track
+from .forms import TrackForm
 
 def track_list(request):
 	tracks = Track.objects.all()
@@ -19,10 +21,45 @@ def track_detail(request, id):
 	context = {
 		"track": track,
 		"artists":artists,
-		"genres":genres
+		"genres":genres,
+
 	}
 
 	return render(request, "tracks/track_detail.html", context)
+
+def track_new(request):
+
+	if request.method == "POST":
+		form = TrackForm(request.POST)
+		if form.is_valid():
+			track = form.save()
+			messages.success(request,"Track created!")
+			return redirect("tracks:track_detail",id=track.pk)
+	else:
+		form = TrackForm()
+
+	context = {
+		"form":form,
+	}
+	return render(request,"tracks/track_edit.html",context)
+
+def track_edit(request,id):
+	track = get_object_or_404(Track,pk=id)
+
+	if request.method == "POST":
+		form = TrackForm(request.POST, instance=track)
+		if form.is_valid():
+			track = form.save()
+			messages.success(request,"Track updated!")
+			return redirect("tracks:track_detail",id=track.pk)
+	else:
+		form = TrackForm(instance=track)
+
+	context = {
+		"form":form,
+		"track":track,
+	}
+	return render(request,"tracks/track_edit.html",context)
 
 def artist_list(request):
 	artists = Artist.objects.all()

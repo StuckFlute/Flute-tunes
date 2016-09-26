@@ -1,7 +1,14 @@
 {% extends "core/base.html" %}
 
 {% block content %}
-    <h2>{{track.title}}</h2>
+    <h2>
+    <div class="pull-right">
+        <a href="{% url 'tracks:track_edit' track.pk%}">
+        <i class="fa fa-pencil-square" aria-hidden="true"></i>
+        </a>
+    </div>
+    {{track.title}}
+    </h2>
 	<h4>Album:</h4> {{track.album}}
     {% if track.artists %}
         
@@ -10,10 +17,8 @@
         <h4>Artists:</h4> 
         {% for artist in artists %}
         {{artist.name}}
-        {% endfor %}     	
-        	
-        	
-       
+        {% endfor %}
+
     
     {% endif %}
     {% if genres %}
@@ -26,4 +31,5 @@
         	
     
     {% endif %}
+    
 {% endblock content %}
