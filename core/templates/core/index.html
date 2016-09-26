@@ -4,26 +4,33 @@
 	<div class="jumbotron jumbotron-index">
 		<h1>Music Library | Flute Tunes</h1>
 	</div>
-	<ul class="list-group">
-		<li class="list-group-item">
-			<a href="{% url 'albums:album_list' %}">
+	<div class="row">
+		<div class="col-sm-6 col-offset-sm-3">
+			<a href="{% url 'albums:album_list' %}" class="thumbnail">
 				View Albums
+				<img src="http://img.lum.dolimg.com/v1/images/open-uri20150422-20810-1n258vh_16b93145.jpeg?region=0,0,600,600&width=320">
 			</a>
-		</li>
-		<li class="list-group-item">
-			<a href="{% url 'tracks:track_list' %}">
+		</div>
+		<div class="col-sm-6 col-offset-sm-3">
+			<a href="{% url 'tracks:track_list' %}" class="thumbnail">
 				View Tracks
+				<img src="http://img.lum.dolimg.com/v1/images/open-uri20150422-20810-1n258vh_16b93145.jpeg?region=0,0,600,600&width=320">
 			</a>
-		</li>
-		<li class="list-group-item">
-			<a href="{% url 'tracks:artist_list' %}">
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-6 col-offset-sm-3">
+			<a href="{% url 'tracks:artist_list' %}" class="thumbnail">
 				View Artists
+				<img src="http://img.lum.dolimg.com/v1/images/open-uri20150422-20810-1n258vh_16b93145.jpeg?region=0,0,600,600&width=320">
 			</a>
-		</li>
-		<li class="list-group-item">
-			<a href="{% url 'tracks:genre_list' %}">
+		</div>
+		<div class="col-sm-6 col-offset-sm-3">
+			<a href="{% url 'tracks:genre_list' %}" class="thumbnail">
 				View Genres
+				<img src="http://img.lum.dolimg.com/v1/images/open-uri20150422-20810-1n258vh_16b93145.jpeg?region=0,0,600,600&width=320">
 			</a>
-		</li>
-	</ul>
+		</div>
+	</div>
+
 {% endblock content %}

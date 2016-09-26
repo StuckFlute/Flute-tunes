@@ -1,6 +1,9 @@
 body {
 	padding-top: 70px;
 	padding-bottom: 70px;
+	background-image: url("http://www.gracenotemusicstudio.com/wp-content/uploads/2014/04/Flute_on_Music.jpg");
+	background-size: 100%;
+	background-repeat: no-repeat;
 }
 
 .page-footer {
