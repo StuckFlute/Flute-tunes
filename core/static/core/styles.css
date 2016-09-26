@@ -6,13 +6,27 @@ body {
 	background-repeat: no-repeat;
 }
 
+.navbar-color {
+	background-color: rgba(3,68,110,0.7);
+}
+
+.icon-bar {
+	background-color: black;
+}
+
+.navbar-brand p {
+	color: white;
+}
 .page-footer {
 	position: fixed;
 	bottom: 0;
 	width: 100%;
-	background-color: #fff;
+	background-color: rgba(3,68,110,0.7);
+	color: white;
 }
 
 .jumbotron-index {
 	text-align: center;
+	background-color: rgba(3,68,110,0.5);
+	color: white;
 }

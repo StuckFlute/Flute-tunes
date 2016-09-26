@@ -4,7 +4,7 @@
 <head>
     <title>
         {% block title %}
-            Music Library
+            Flute Tunes
         {% endblock title %}
     </title>
     <!-- Latest compiled and minified CSS -->
@@ -21,20 +21,31 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-default navbar-fixed-top">
-          <div class="container">
-            <div class="navbar-header">
-                <a href="{% url 'core:index' %} " class="navbar-brand">
-                <i class="fa fa-book" aria-hidden="true"></i>
-                    Music library
-                </a>
+        <nav class="navbar navbar-color navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed navbar-default" data-toggle="collapse" data-target="#navbar-header-collapse" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="{% url 'core:index' %}" class="navbar-brand">
+                        <p>
+                            <i class="fa fa-music" aria-hidden="true"></i>
+                            Flute Tunes
+                        </p>
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse" id="navbar-header-collapse">
+
+                    <form class="navbar-form navbar-right" action="{% url 'albums:album_list' %}">
+                        <label for="index-search" class="sr-only">Search album</label>
+                        <input type="text" id="index-search" class="form-control" name="q" placeholder="Find an album">    
+                        <button type="submit" class="btn btn-info">Submit</button>
+                    </form>
+                </div>
             </div>
-            <form class="navbar-form navbar-right" action="{% url 'albums:album_list' %}">
-            <label for="index-search" class="sr-only"> Search album</label>
-                <input type="text" class="form-control input-lg" name="q" placeholder="Find a album">
-                <button type="subimt" class="btn btn-info"> Find</button>
-            </form>
-          </div>
         </nav>
     </header>
     <div class="container">
